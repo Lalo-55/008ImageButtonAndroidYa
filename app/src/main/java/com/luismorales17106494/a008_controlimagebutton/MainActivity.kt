@@ -2,6 +2,8 @@ package com.luismorales17106494.a008_controlimagebutton
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.luismorales17106494.a008_controlimagebutton.databinding.ActivityMainBinding
+
 /*
     8 - Control ImageButton
 Hemos visto la creación de objetos de la clase Button,
@@ -20,8 +22,15 @@ el mensaje "Llamando".
  */
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        binding.ibCancelar.setOnClickListener(){
+            binding.tvAccion.text = "Cancelado"
+        }
     }
 }
